@@ -1,0 +1,222 @@
+.div-top-menu {
+	border: solid 1px;
+	background: skyblue;
+}
+/*----------------------------------------------------------*/
+/*Верхний список меню*/
+.ul-top-list-menu {
+	background: skyblue;
+	padding: 0;
+    width: 100%;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+.ul-top-list-menu li {
+	display: inline;
+	margin-right: 5px;
+    margin-left: 1.2%;
+}
+
+.ul-top-list-menu a {
+	outline: none;
+    text-decoration: none;
+    display: inline-block;
+    width: 17%;
+    margin-right: 1%;
+    text-align: center;
+    line-height: 3;
+    color: black;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.ul-top-list-menu li:last-child a {
+    margin-right: 0;
+}
+
+.ul-top-list-menu a:link, a:visited, a:focus {
+    background: lightskyblue;
+}
+
+.ul-top-list-menu a:hover {
+    background: gray;
+}
+
+.ul-top-list-menu a:active{
+    background: limegreen;
+    color: white;
+}
+/*---------------------------------------------------------*/
+
+
+.div-title {
+	border: solid 1px none;
+	background-image: url(/static/img/general.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 350px;
+	width: 100%;
+}
+
+.div-title-spelling-img-1 {
+	font-family: Comic Sans MS;
+	font-size: 50px;
+	color: skyblue;
+}
+
+.div-title-spelling-img-2 {
+	font-family: Comic Sans MS;
+	font-size: 50px;
+	color: skyblue;
+	text-align: right;
+}
+
+.div-posts {
+	border: solid 1px grey;
+}
+
+/*стиль текста заголовка и поста*/
+.table-frame-title {
+	border: 1px solid grey;
+	border-radius: 5px;
+	padding: 0 10px;
+	font-size: 18px;
+	font-family: Comic Sans MS;
+}
+/*---------------------------------------------------------*/
+
+.table-frame-title-2 {
+	font-size: 16px;
+	font-family: Comic Sans MS;
+}
+
+/*стиль для загруженного изображения поста*/
+.image-picture-post {
+	height: 150px;
+}
+/*---------------------------------------------------------*/
+
+.table-background {
+	background: linear-gradient(90deg, rgba(142,59,142,1) 0%, rgba(24,217,156,1) 49%, rgba(142,59,142,1) 100%);
+	width: 100%;
+	padding-right: 10%;
+}
+
+.table-frame-title-th {
+	width: 15%;
+	text-align: right;
+	font-family: Comic Sans MS;
+}
+
+.post-line-hr {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.like-button {
+	margin-right: 15px;
+}
+
+.dislike-button {
+	margin-left: 15px;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+.comment-button {
+	margin-left: 30px;
+	text-align: center;
+
+}
+
+.comment-button-1 {
+	height: 35px;
+	position: absolute;
+	font-size: 18px;
+	font-family: Comic Sans MS;
+	background-color: yellowgreen;
+	border-radius: 5px;
+}
+
+.button-div {
+	padding-top: 30px;
+	height: 70px;
+	text-align: center;
+}
+
+/*стиль кнопки для чтения постов*/
+.read-button {
+	margin-left: 20px;
+	font-size: 18px;
+	font-family: Comic Sans MS;
+	background-color: skyblue;
+	border-radius: 5px;
+}
+
+.link-button {
+	text-decoration: none;
+}
+/*---------------------------------------------------------*/
+
+/*стиль пагинации*/
+.pagination-pages {
+	background: linear-gradient(90deg, rgba(142,59,142,1) 0%, rgba(24,217,156,1) 49%, rgba(142,59,142,1) 100%);
+	width: 100%;
+	text-align: center;
+	color: black;
+	font-size: 20px;
+	font-family: Comic Sans MS;
+}
+
+/*---------------------------------------------------------*/
+
+/*стиль отображения информации о пользователе*/
+.user-info {
+	text-align: right;
+	margin-right: 20px;
+	font-size: 20px;
+	color: skyblue;
+}
+
+.frame-user-info {
+	border: solid 1px grey;
+	border-radius: 3px;
+	padding: 5px 10px;
+	color: indianred;
+}
+/*---------------------------------------------------------*/
+
+/*стиль отображения комментариев к посту*/
+.frame-comment {
+	border: solid 1px skyblue;
+	border-radius: 3px;
+	padding: 5px 10px;
+	font-family: Cambria;
+}
+
+.list-comment-ul li {
+	padding-bottom: 20px;
+}
+
+.frame-comment-li {
+	border: 1px solid grey;
+	border-radius: 5px;
+	padding: 0 10px;
+}
+
+.exist-comment {
+	border: solid darkgreen;
+	background: darkgreen;
+	border-radius: 3px;
+	padding: 0 2px;
+	font-family: Comic Sans MS;
+}
+
+.accepted_comment {
+	border-radius: 3px;
+	background-color: green;
+	font-style: italic;
+}
+
+/*---------------------------------------------------------*/

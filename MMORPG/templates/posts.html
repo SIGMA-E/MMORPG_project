@@ -1,0 +1,95 @@
+{% extends 'flatpages/default.html' %}
+
+{% load static %}
+
+{% block title %}
+    Posts
+{% endblock title %}
+
+{% block content %}
+    <div class="div-posts">
+        <table class="table-background">
+            {% for post in posts %}
+                <tr>
+                    <th class="table-frame-title-th">Заголовок:</th>
+                    <td class="table-frame-title"><b>{{post.post_title}}<button class="read-button"><a href="{% url 'post_detail' pk=post.pk %}" class="link-button">Читать</a></button></b></td>
+                </tr>
+                <tr>
+                    <th class="table-frame-title-th">Текст:</th>
+                    <td class="table-frame-title">{{post.post_text}}</td>
+                </tr>
+                <tr>
+                    <th class="table-frame-title-th">Изображение:</th>
+                    {% if post.post_image %}
+                        <td><img src="/media/{{post.post_image}}" class="image-picture-post"></td>
+                    {% else %}
+                        <td class="table-frame-title">Нет изображения</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <th class="table-frame-title-th">Категория:</th>
+                    <td class="table-frame-title-2">{{post.get_post_category_display}}</td>
+                </tr>
+                <tr>
+                    <th class="table-frame-title-th">Автор:</th>
+                    <td class="table-frame-title-2">{{ post.post_author }}</td>
+                </tr>
+                <tr>
+                    <th class="table-frame-title-th">Комментарии:</th>
+                    <td>
+                        {% if post.id not in comments %}
+                            <span class="table-frame-title-2">нет коментариев</span>
+                        {% else %}
+                            <span class="exist-comment">есть коментарии</span>     
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                        {% if post.post_author == author %}
+                            Это ваша статья!!!
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="center">
+                        <div class="button-div">
+                            <a class="like-button" href=""><img src="{% static 'img/like.png' %}"></a>
+                            <a class="dislike-button"><img src="{% static 'img/dislike.png' %}"></a>
+                            <a href="{% url 'write_comment' pk=post.pk %}" class="comment-button"><button class="comment-button-1">Оставить отзыв</button></a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><hr class="post-line-hr"></th>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <!-- блок пагинации -->
+        <div class="pagination-pages">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">1</a>
+                {% if page_obj.previous_page_number != 1 %}
+                    ...
+                    <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+                {% endif %}
+            {% endif %}
+
+            {{ page_obj.number }}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+                {% if paginator.num_pages != page_obj.next_page_number %}
+                    ...
+                    <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+                {% endif %}
+            {% endif %}
+        </div>
+        <!-- конец блока пагинации -->
+
+    </div>
+{% endblock content %}

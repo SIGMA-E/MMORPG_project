@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <title>{% block title %} {% endblock title %}</title>
+</head>
+<body>
+    <div class="div-top-menu">
+        <ul class="ul-top-list-menu">
+            <li><a href="{% url 'post_list' %}">Список новостей</a></li>
+            {% if is_author %}
+                <li><a href="{% url 'create_post' %}">Создать новость</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div class="div-title">
+        <table width="100%">
+            <tr>
+                <td class="div-title-spelling-img-1">ИНТЕРНЕТ-РЕСУРС</td>
+                <td class="div-title-spelling-img-2">для фанатов игр MMORPG</td>
+            </tr>
+        </table>
+        <div class="user-info">
+            <span>Пользователь: </span><span class="frame-user-info">{{ request.user.username }}</span><br>
+            {% if request.user.is_authenticated %}
+                <button><a href="/account/logout/">Выйти</a></button>
+            {% else %}
+                <button><a href="/account/login/">Войти</a></button>
+                <button><a href="/account/signup/">Зарегистрироваться</a></button>
+            {% endif %}
+        </div>
+    </div>
+
+    {% block content %} {% endblock content %}
+</body>
+</html>

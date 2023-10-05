@@ -1,0 +1,62 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Post
+{% endblock title %}
+
+{% block content %}
+<div>
+	<table class="table-background">
+		<tr>
+			<th class="table-frame-title-th">Заголовок:</th>
+			<td class="table-frame-title">{{ post.post_title }}</td>
+		</tr>
+		<tr>
+			<th class="table-frame-title-th">Текст поста:</th>
+			<td class="table-frame-title">{{ post.post_text }}</td>
+		</tr>
+		<tr>
+			<th class="table-frame-title-th">Изображение</th>
+			{% if post.post_image %}
+				<td><img src="/media/{{ post.post_image }}" class="image-picture-post"></td>
+			{% else %}
+				<td>Нет изображения</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<th class="table-frame-title-th">Категория:</th>
+			<td class="table-frame-title">{{ post.get_post_category_display }}</td>
+		</tr>
+		<tr>
+			<th class="table-frame-title-th">Автор:</th>
+			<td class="table-frame-title">{{ post.post_author }}</td>
+		</tr>
+		<tr>
+			<th class="table-frame-title-th">Коментарии:</th>
+
+			<td class="frame-comment-li">
+				<ul class="list-comment-ul">
+					{% for comment in comments %}
+						<li>
+							<span class="frame-comment">{{ comment.comment_text }}</span> <i>комментарий оставил:</i> <b>{{ comment.comment_author }}</b>
+
+							<!-- Кнопки принять или удалить коментарий только если вы автор поста -->
+							{% if post.post_author == author %}
+								{% if comment.comment_status != 1 %}
+									<a href="{% url 'accept_comment' id_comment=comment.pk %}"><button>Принять</button></a>
+									<a href="{% url 'delete_comment' id_comment=comment.pk %}"><button>Удалить</button></a>
+								{% else %}
+									<span class="accepted_comment">комментарий принят!!!</span>
+								{% endif %}
+							{% endif %}
+							<!-- Конец блока кнопок -->
+
+						</li>
+					{% endfor %}
+					Всего коментариев: {{ comments|length }}
+				</ul>
+			</td>
+		</tr>
+	</table>
+</div>
+{% endblock content %}

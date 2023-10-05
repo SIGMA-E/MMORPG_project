@@ -1,0 +1,16 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Create comment
+{% endblock title %}
+
+{% block content %}
+<h1>Написать отзыв пост</h1>
+<hr>
+<form action="" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Отправить" class="send-post">
+</form>
+<hr>
+{% endblock content %}
